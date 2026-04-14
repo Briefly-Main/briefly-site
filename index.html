@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Briefly | The News, Without the Noise</title>
+    <meta name="description" content="Briefly is your intelligent news companion — delivering fast, bias-aware summaries of politics, technology, business, science, and more.">
+
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Animations -->
+    <script src="https://cdn.jsdelivr.net/npm/motion@10.16.2/dist/motion.js"></script>
+</head>
+<body>
+    <div class="background-effects">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+    </div>
+
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="favicon.svg" alt="Briefly Logo" class="logo-svg">
+                <span class="logo-text">Briefly</span>
+            </div>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#digest">AI Digest</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="container hero-content">
+                <div class="badge fade-in">A Smarter Feed is Coming</div>
+                <h1 class="fade-in-up">The News, Without the <span class="text-gradient">Noise.</span></h1>
+                <p class="hero-subtitle fade-in-up delay-1">Briefly is your intelligent news companion — delivering fast summaries of politics, technology, business, science, and more.</p>
+
+                <div class="cta-group fade-in-up delay-2">
+                    <a href="#early-access" class="btn btn-xl btn-primary">Join Early Access</a>
+                </div>
+            </div>
+
+            <div class="hero-visual fade-in delay-3" id="digest">
+                <div class="floating-card digest-preview">
+                    <div class="card-header">
+                        <i data-lucide="zap" class="icon-small text-blue"></i>
+                        <span>Today's AI Digest</span>
+                    </div>
+                    <div class="digest-items">
+                        <div class="digest-item">
+                            <div class="pulse"></div>
+                            <p>OpenAI reveals Sora, a new text-to-video AI model</p>
+                        </div>
+                        <div class="digest-item">
+                            <div class="pulse"></div>
+                            <p>Google announces new AI chip family, 'Axion' for data centers</p>
+                        </div>
+                        <div class="digest-item">
+                            <div class="pulse"></div>
+                            <p>MIT researchers develop new technique for faster AI training</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container stats-bar">
+            <div class="stats-grid">
+                <div class="stat-item fade-in-up">
+                    <span class="stat-val">60 sec</span>
+                    <span class="stat-label">to catch up on global headlines</span>
+                </div>
+                <div class="stat-sep"></div>
+                <div class="stat-item fade-in-up delay-1">
+                    <span class="stat-val">AI-curated</span>
+                    <span class="stat-label">so you don’t scroll endlessly</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="features" id="features">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="text-gradient">Why Choose Briefly?</h2>
+                </div>
+
+                <ul class="features-list">
+                    <li class="feature-li fade-in-up">
+                        <div class="li-icon"><i data-lucide="check"></i></div>
+                        <span>Save 90% of your research time</span>
+                    </li>
+                    <li class="feature-li fade-in-up delay-1">
+                        <div class="li-icon"><i data-lucide="check"></i></div>
+                        <span>Track emerging AI trends before they go mainstream</span>
+                    </li>
+                    <li class="feature-li fade-in-up delay-2">
+                        <div class="li-icon"><i data-lucide="check"></i></div>
+                        <span>Verified sources and fact-checked content</span>
+                    </li>
+                    <li class="feature-li fade-in-up delay-3">
+                        <div class="li-icon"><i data-lucide="check"></i></div>
+                        <span>Perfect mobile experience for reading on-the-go</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="cta-section" id="early-access">
+            <div class="container">
+                <div class="cta-box">
+                    <h2>Join the News Revolution</h2>
+                    <p>Be the first to experience Briefly. We're launching our beta soon.</p>
+                    <form class="early-access-form" id="waitlist-form">
+                        <input type="email" placeholder="Enter your email" required id="email-input" autocomplete="email">
+                        <button type="submit" class="btn btn-lg btn-primary">Join Waitlist</button>
+                    </form>
+                    <div id="form-message" class="hidden">Thanks! You're on the list.</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <span class="logo-text">Briefly</span>
+                <p>The News, Without the Noise.</p>
+            </div>
+            <div class="footer-links">
+                <p>&copy; 2026 Briefly News AI. All rights reserved.</p>
+                <div class="social-links">
+                    <a href="#"><i data-lucide="twitter"></i></a>
+                    <a href="#"><i data-lucide="linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
