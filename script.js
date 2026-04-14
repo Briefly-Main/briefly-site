@@ -72,22 +72,51 @@ document.addEventListener('DOMContentLoaded', () => {
     const { animate: motionAnimate } = typeof Motion !== 'undefined' ? Motion : { animate: null };
 
     if (waitlistForm) {
-        waitlistForm.addEventListener('submit', (e) => {
+        waitlistForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             const email = document.getElementById('email-input').value;
-            console.log(`Adding ${email} to waitlist...`);
+            const submitBtn = waitlistForm.querySelector('button');
             
-            if (motionAnimate) {
-                motionAnimate(waitlistForm, { opacity: 0, scale: 0.9 }, { duration: 0.4 }).finished.then(() => {
-                    waitlistForm.classList.add('hidden');
-                    if (formMessage) {
-                        formMessage.classList.remove('hidden');
-                        motionAnimate(formMessage, { opacity: [0, 1], y: [10, 0] }, { duration: 0.4 });
+            // Disable button and show loading state
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Joining...';
+            }
+
+            try {
+                const response = await fetch('https://formspree.io/f/mojyvvgj', {
+                    method: 'POST',
+                    body: JSON.stringify({ email: email }),
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
                     }
                 });
-            } else {
-                waitlistForm.classList.add('hidden');
-                if (formMessage) formMessage.classList.remove('hidden');
+
+                if (response.ok) {
+                    if (motionAnimate) {
+                        motionAnimate(waitlistForm, { opacity: 0, scale: 0.9 }, { duration: 0.4 }).finished.then(() => {
+                            waitlistForm.classList.add('hidden');
+                            if (formMessage) {
+                                formMessage.classList.remove('hidden');
+                                motionAnimate(formMessage, { opacity: [0, 1], y: [10, 0] }, { duration: 0.4 });
+                            }
+                        });
+                    } else {
+                        waitlistForm.classList.add('hidden');
+                        if (formMessage) formMessage.classList.remove('hidden');
+                    }
+                } else {
+                    const data = await response.json();
+                    throw new Error(data.error || 'Submission failed');
+                }
+            } catch (error) {
+                console.error('Waitlist submission error:', error);
+                alert('Oops! There was a problem joining the list. Please try again.');
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Join Waitlist';
+                }
             }
         });
     }
